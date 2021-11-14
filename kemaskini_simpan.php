@@ -5,10 +5,9 @@ $IDMakanan = $_POST['IDMakanan'];
 $NamaMakanan = $_POST['NamaMakanan'];
 $HargaMakanan = $_POST['HargaMakanan'];
 
-
-$sql = "INSERT INTO makananbasah (IDMakanan,NamaMakanan, HargaMakanan) VALUES (?, ?, ?)";
+$sql = "UPDATE makananbasah SET IDMakanan = ?, NamaMakanan = ?, HargaMakanan = ? WHERE bill = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param('sd', $IDMakanan, $NamaMakanan, $HargaMakanan);
+$stmt->bind_param('sdi',  $IDMakanan,$NamaMakanan, $HargaMakanan);
 $stmt->execute();
 
 if ($conn->error) {

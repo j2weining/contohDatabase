@@ -1,26 +1,36 @@
 <?php
+    require 'conn.php';
     $IDMakanan = $_GET['IDMakanan'];
     $sql = "SELECT * FROM makananbasah WHERE IDMakanan = ?";
-    $stmt = $mysqli->prepare($sql);
+    $stmt = $conn->prepare($sql);
     $stmt->bind_param('i', $IDMakanan);
     $stmt->execute();
     $result = $stmt->get_result();
     $row = $result->fetch_array();
     ?>
-    <form action="kemaskini_simpan.php" method="post">
-        <input type="hidden" name="IDMakanan" value="<?php echo $row->IDMakanan; ?>"/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kemas Kini</title>
+</head>
+<body>
+<form action="kemaskini_simpan.php" method="post">
+        <!--<input type="hidden" name="makanan" value="<?php echo $row->id; ?>"/>-->
         <table>
             <tr>
                 <td><label for="idmakanan">ID Makanan</label></td>
                 <td>
-                    <input id="idmakanan" type="number" step="any" name="idmakanan"
+                    <input id="idmakanan" type="text" step="any" name="idmakanan"
                            value="<?php echo $row->IDMakanan; ?>" required/>
                 </td>
             </tr>
             <tr>
-                <td><label for="nama">Nama Makanan</label></td>
+                <td><label for="NamaMakanan">Nama Makanan</label></td>
                 <td>
-                    <input id="nama" type="text" name="nama"
+                    <input id="NamaMakanan" type="text" name="NamaMakanan"
                            value="<?php echo $row->NamaMakanan; ?>" required/>
                 </td>
             </tr>
@@ -38,3 +48,5 @@
             </tr>
         </table>
     </form>
+</body>
+</html>

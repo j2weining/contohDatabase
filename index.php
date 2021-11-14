@@ -37,7 +37,7 @@ require 'conn.php';
                         |
                         <a href="padam.php?IDMakanan=<?php echo $row->IDMakanan; ?>" onclick="return confirm('Betul ke nak padam?');">Padam</a>
                         |
-                        <a href="simpan.php?IDMakanan=<?php echo $row->IDMakanan; ?>" onclick="return confirm('Betul ke nak edit?');">Details</a>
+                        <a href="simpan.php?IDMakanan=<?php echo $row->IDMakanan; ?>" onclick="return confirm('Betul ke nak tambah?');">Tambah</a>
                     </td>
                 </tr>
         <?php
