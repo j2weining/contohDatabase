@@ -1,13 +1,12 @@
 <?php
 require 'conn.php';
 
-$IDMakanan = $_POST['IDMakanan'];
-$NamaMakanan = $_POST['NamaMakanan'];
-$HargaMakanan = $_POST['HargaMakanan'];
+$namamakanan = $_POST['namamakanan'];
+$hargamakanan = $_POST['hargamakanan'];
 
-$sql = "UPDATE makananbasah SET IDMakanan = ?, NamaMakanan = ?, HargaMakanan = ? WHERE bill = ?";
+$sql = "UPDATE makananbasah SET namamakanan = ?, hargamakanan = ? WHERE idmakananbasah = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param('sdi',  $IDMakanan,$NamaMakanan, $HargaMakanan);
+$stmt->bind_param('sdi', $namamakanan, $hargamakanan);
 $stmt->execute();
 
 if ($conn->error) {

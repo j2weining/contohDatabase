@@ -1,11 +1,11 @@
 <?php
 require 'conn.php';
 
-$IDMakanan = $_GET['IDMakanan'];
+$idmakananbasah = $_GET['idmakananbasah'];
 
-$sql = "DELETE FROM makananbasah WHERE IDMakanan = ?";
-$stmt = $test->prepare($sql);
-$stmt->bind_param('i', $IDMakanan);
+$sql = "DELETE FROM makananbasah WHERE idmakananbasah = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param('i', $idmakananbasah);
 $stmt->execute();
 
 header('location: index.php');

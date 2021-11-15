@@ -1,14 +1,13 @@
 <?php
 require 'conn.php';
 
-$IDMakanan = $_POST['IDMakanan'];
-$NamaMakanan = $_POST['NamaMakanan'];
-$HargaMakanan = $_POST['HargaMakanan'];
+$namamakanan = $_POST['namamakanan'];
+$hargamakanan = $_POST['hargamakanan'];
 
 
-$sql = "INSERT INTO makananbasah (IDMakanan,NamaMakanan, HargaMakanan) VALUES (?, ?, ?)";
+$sql = "INSERT INTO makananbasah (namamakanan, hargamakanan) VALUES (?, ?)";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param('sd', $IDMakanan, $NamaMakanan, $HargaMakanan);
+$stmt->bind_param('sd',$namamakanan, $hargamakanan);
 $stmt->execute();
 
 if ($conn->error) {

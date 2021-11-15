@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2021 at 04:29 AM
+-- Generation Time: Nov 15, 2021 at 06:07 AM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.4.19
 
@@ -28,19 +28,18 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `makananbasah` (
-  `IDMakanan` varchar(5) NOT NULL,
-  `NamaMakanan` varchar(20) NOT NULL,
-  `HargaMakanan` double(4,2) NOT NULL
+  `idmakananbasah` int(5) NOT NULL,
+  `namamakanan` text NOT NULL,
+  `hargamakanan` double(4,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `makananbasah`
 --
 
-INSERT INTO `makananbasah` (`IDMakanan`, `NamaMakanan`, `HargaMakanan`) VALUES
-('MK001', 'Mee Sup', 4.00),
-('MK002', 'Bihun Sup', 4.00),
-('MK003', 'Kuey Teow Sup', 4.00);
+INSERT INTO `makananbasah` (`idmakananbasah`, `namamakanan`, `hargamakanan`) VALUES
+(1, 'Mee Sup', 4.00),
+(2, 'Bihun Sup', 4.00);
 
 --
 -- Indexes for dumped tables
@@ -50,8 +49,17 @@ INSERT INTO `makananbasah` (`IDMakanan`, `NamaMakanan`, `HargaMakanan`) VALUES
 -- Indexes for table `makananbasah`
 --
 ALTER TABLE `makananbasah`
-  ADD PRIMARY KEY (`IDMakanan`),
-  ADD UNIQUE KEY `IDMakanan` (`IDMakanan`);
+  ADD PRIMARY KEY (`idmakananbasah`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `makananbasah`
+--
+ALTER TABLE `makananbasah`
+  MODIFY `idmakananbasah` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

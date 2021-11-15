@@ -1,5 +1,7 @@
 <?php
 $host = 'localhost';
 $dbname = 'senaraimakanan';
-$conn = new mysqli($host, $username='root', $password=null, $dbname);
+$username = 'root';
+$password = '';
+$conn = new mysqli($host, $username, $password, $dbname);
 session_start();
