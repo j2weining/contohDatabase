@@ -1,23 +1,49 @@
 <?php
 require 'conn.php';
-
-$namamakanan = $_POST['namamakanan'];
-$hargamakanan = $_POST['hargamakanan'];
-
-
-$sql = "INSERT INTO makananbasah (namamakanan, hargamakanan) VALUES (?, ?)";
+$idmakananbasah = $_GET['idmakananbasah'];
+$sql = "SELECT * FROM makananbasah WHERE idmakananbasah = ?";
 $stmt = $conn->prepare($sql);
-$stmt->bind_param('sd',$namamakanan, $hargamakanan);
+$stmt->bind_param('i', $idmakananbasah);
 $stmt->execute();
+$result = $stmt->get_result();
+$row = $result->fetch_object();
+?>
+<!DOCTYPE html>
+<html lang="en">
 
-if ($conn->error) {
-    ?>
-    <script>
-        alert('Maaf! Nama makanan tersebut sudah wujud dalam senarai');
-        window.location = 'index.php';
-    </script>
-    <?php
-    exit;
-} else {
-    header('location: index.php');
-}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah</title>
+</head>
+
+<body>
+
+    <body>
+        <form action="simpan_simpan.php" method="post">
+            <table>
+                <input type="hidden" name="idmakananbasah" value="<?php echo $row->idmakananbasah; ?>" />
+                <tr>
+                    <td><label for="namamakanan">Nama Makanan</label></td>
+                    <td>
+                        <input id="namamakanan" type="text" name="namamakanan" value="<?php echo $row->namamakanan; ?>" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="hargamakanan">Harga Makanan</label></td>
+                    <td>
+                        <input id="hargamakanan" type="number" step="any" name="hargamakanan" value="<?php echo $row->hargamakanan; ?>" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <button type="submit">TAMBAH</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</body>
+
+</html>
