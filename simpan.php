@@ -1,13 +1,3 @@
-<?php
-require 'conn.php';
-$idmakananbasah = $_GET['idmakananbasah'];
-$sql = "SELECT * FROM makananbasah WHERE idmakananbasah = ?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param('i', $idmakananbasah);
-$stmt->execute();
-$result = $stmt->get_result();
-$row = $result->fetch_object();
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,17 +13,16 @@ $row = $result->fetch_object();
     <body>
         <form action="simpan_simpan.php" method="post">
             <table>
-                <input type="hidden" name="idmakananbasah" value="<?php echo $row->idmakananbasah; ?>" />
                 <tr>
                     <td><label for="namamakanan">Nama Makanan</label></td>
                     <td>
-                        <input id="namamakanan" type="text" name="namamakanan" value="<?php echo $row->namamakanan; ?>" required />
+                        <input id="namamakanan" type="text" name="namamakanan" required />
                     </td>
                 </tr>
                 <tr>
                     <td><label for="hargamakanan">Harga Makanan</label></td>
                     <td>
-                        <input id="hargamakanan" type="number" step="any" name="hargamakanan" value="<?php echo $row->hargamakanan; ?>" required />
+                        <input id="hargamakanan" type="number" step="any" name="hargamakanan" required />
                     </td>
                 </tr>
                 <tr>

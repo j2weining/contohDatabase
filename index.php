@@ -34,15 +34,15 @@ require 'conn.php';
                         <a href="kemaskini.php?idmakananbasah=<?php echo $row->idmakananbasah; ?>">Edit</a>
                         |
                         <a href="padam.php?idmakananbasah=<?php echo $row->idmakananbasah; ?>" onclick="return confirm('Betul ke nak padam?');">Padam</a>
-                        |
-                        <a href="simpan.php?idmakananbasah=<?php echo $row->idmakananbasah; ?>">Tambah</a>
                     </td>
                 </tr>
+                
         <?php
             }
         }
         ?>
     </table>
+    <a href="simpan.php?">Tambah</a>
 </body>
 
 </html>
