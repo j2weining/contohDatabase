@@ -21,7 +21,7 @@ $row = $result->fetch_object();
 <body>
     <form action="kemaskini_simpan.php" method="post">
         <table>
-        <input type="hidden" name="idmakananbasah" value="<?php echo $row->idmakananbasah; ?>"/>
+            <input type="hidden" name="idmakananbasah" value="<?php echo $row->idmakananbasah; ?>" />
             <tr>
                 <td><label for="namamakanan">Nama Makanan</label></td>
                 <td>

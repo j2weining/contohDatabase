@@ -13,6 +13,7 @@ require 'conn.php';
 </head>
 
 <body>
+    <a href="simpan.php?">Tambah</a>
     <table border="1" cellpadding="8" cellspacing="0">
         <tr bgcolor="#ffd700">
             <th>ID Makanan Basah</th>
@@ -20,7 +21,7 @@ require 'conn.php';
             <th>Harga Makanan</th>
             <th>Tindakan</th>
         </tr>
-    
+
         <?php
         $sql = "SELECT * FROM makananbasah";
         if ($result = $conn->query($sql)) {
@@ -36,13 +37,13 @@ require 'conn.php';
                         <a href="padam.php?idmakananbasah=<?php echo $row->idmakananbasah; ?>" onclick="return confirm('Betul ke nak padam?');">Padam</a>
                     </td>
                 </tr>
-                
+
         <?php
             }
         }
         ?>
     </table>
-    <a href="simpan.php?">Tambah</a>
+
 </body>
 
 </html>
